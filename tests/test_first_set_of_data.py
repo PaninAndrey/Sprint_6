@@ -1,3 +1,5 @@
+from locale import currency
+
 import allure
 
 
@@ -39,7 +41,7 @@ class TestOrderWithFirstSetOfData:
         scooter_transition = Transitions(driver)
         scooter_transition.press_confirmation_button()
         scooter_transition.press_scooter_button()
-        assert driver.current_url == main_site
+        assert scooter_transition.get_scooter_url() == main_site
 
     @allure.title("Проверка перехода со страницы оформления заказа"
                   " самоката на главную страницу Я.Дзен")
@@ -50,4 +52,3 @@ class TestOrderWithFirstSetOfData:
         dzen_transition.press_confirmation_button()
         dzen_transition.press_dzen_button()
         assert dzen_transition.switch_and_get_url(expected_url) == expected_url
-

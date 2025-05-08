@@ -31,3 +31,14 @@ class MainPage:
     def get_text_on_element(self, locator, timeout=10):
         element = self.wait_for_element(locator, timeout)
         return element.text
+
+    @allure.step("Получение url со страницы Дзен")
+    def switch_and_get_url(self, expected_url, timeout=10):
+        WebDriverWait(self.driver, timeout).until(EC.number_of_windows_to_be(2))
+        self.driver.switch_to.window(self.driver.window_handles[-1])
+        WebDriverWait(self.driver, timeout).until(EC.url_to_be(expected_url))
+        return self.driver.current_url
+
+    @allure.step("Получение url главной страницы заказа самоката")
+    def get_scooter_url(self):
+        return self.driver.current_url
