@@ -5,7 +5,6 @@ from pages.order_form_page_one import OrderFormPageOne
 from data import SecondSetOfData
 from data import SecondCommentForCourier
 from pages.order_form_page_two import OrderFormPageTwo
-from tests.conftest import driver
 from pages.transitions import Transitions
 from curl import *
 
@@ -38,7 +37,7 @@ class TestOrderWithSecondSetOfData:
         scooter_transition = Transitions(driver)
         scooter_transition.press_confirmation_button()
         scooter_transition.press_scooter_button()
-        assert driver.current_url == main_site
+        assert scooter_transition.get_scooter_url() == main_site
 
     @allure.title("Проверка перехода со страницы оформления заказа"
                   " самоката на главную страницу Я.Дзен")

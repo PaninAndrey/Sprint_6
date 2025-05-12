@@ -1,5 +1,3 @@
-from locale import currency
-
 import allure
 
 
@@ -7,7 +5,6 @@ from pages.order_form_page_one import OrderFormPageOne
 from data import FirstSetOfData
 from data import FirstCommentForCourier
 from pages.order_form_page_two import OrderFormPageTwo
-from tests.conftest import driver
 from pages.transitions import Transitions
 from curl import *
 
